@@ -10,7 +10,6 @@ function App(){
     const [fname, setFname]= useState(' ')
     const [lname, setLname]= useState(' ')
     const [theme, setTheme]=useState('true')
-    const [themeName, setThemeName] = useState('true')
      function updatefname(e){
          setFname(e.target.value)
 
@@ -22,10 +21,10 @@ function App(){
     function getTheme(){
         setTheme((prev)=>{
             if(prev===true){
-                setThemeName("false")
+                
                 return false
             }else{
-                setThemeName('true')
+                
                 return true
             }
         })
