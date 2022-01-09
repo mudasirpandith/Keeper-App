@@ -6,7 +6,7 @@ import notes from "../notes";
 
 
 function App(){
-    const sun='<i class="far fa-sun"></i>'
+    
     const [fname, setFname]= useState(' ')
     const [lname, setLname]= useState(' ')
     const [theme, setTheme]=useState('true')
