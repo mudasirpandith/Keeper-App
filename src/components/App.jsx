@@ -2,56 +2,57 @@ import React,{useState} from "react";
 import Header from "./Header";
 import Note from "./Note";
 import Footer from "./Footer";
-import notes from "../notes";
 
-
+import CreateArea from "./createarea";
 function App(){
-    const sun='<i class="far fa-sun"></i>'
-    const [fname, setFname]= useState(' ')
-    const [lname, setLname]= useState(' ')
-    const [theme, setTheme]=useState('true')
-    const [themeName, setThemeName] = useState('true')
-     function updatefname(e){
-         setFname(e.target.value)
+    const [notes,setNotes]=useState([])
+    function addNote(newnote){
+setNotes(prenotes=>{
+   return [...prenotes,newnote]
 
-     }
-     function updatelname(e){
-        setLname(e.target.value)
-
+})
     }
+    function delNote(id){
+setNotes(prenotes=>{
+ return   prenotes.filter((noteItem,index) =>{
+        return index !==id;
+    })
+})
+    }
+    const [theme, setTheme]=useState('true')
+    const [themeName, setThemeName] = useState("far fa-sun")
+    
     function getTheme(){
         setTheme((prev)=>{
             if(prev===true){
-                setThemeName("false")
+                setThemeName("fas fa-moon")
                 return false
             }else{
-                setThemeName('true')
+                setThemeName("far fa-sun")
                 return true
             }
         })
     }
     return (
         
-        <div style={{backgroundColor:theme?'wheat':"#1D1B1B"}}>
-     <button className="themeIcon" onClick={getTheme} ><p><i class="far fa-sun"></i></p> </button>
+        <div >
+           
+     <p className="themeIcon" onClick={getTheme} ><p><i class={themeName}></i></p> </p>
+     
             <Header />
-
-{notes.map(noteItem=>
+            <div style={{backgroundColor:theme?'wheat':"#1D1B1B",}}>
+<CreateArea onAdd={addNote} />
+          {notes.map((noteItem, index)=>
     <Note 
-    key={noteItem.key}
+    key={index}
+    id={index}
     title={noteItem.title}
     content={noteItem.content}
+    onDelete={delNote}
     />)}
-<div className="container">
-    <h1> Hello {fname} {lname} </h1>
-   <form className="form-group" >
-       <input onChange={updatefname} className="form-control" type="text" name="fname" placeholder="First Name" />
-       <input onChange={updatelname} className="form-control" type="text" name="lname" placeholder="Last Name" />
-       <button className="btn btn-primary" type="submit">Submit </button>
-   </form>
-</div>
+
             <Footer />
-        </div>
+        </div></div>
     )}
 export default App;
 

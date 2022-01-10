@@ -1,6 +1,8 @@
 body,html{
     margin: 0;
-
+    background-color: #e4f2e1;
+background-image: url("https://www.transparenttextures.com/patterns/diamond-upholstery.png");
+/* This is mostly intended for prototyping; please download the pattern and re-host for production environments. Thank you! */
 }
 header{
     background-color: rgb(6, 117, 6);
@@ -29,7 +31,6 @@ footer{ color: gray;
     width: 100%;
 }
 .note{
-    background-color: white;
     border-radius: 7px;
     border-top: solid black 5px;
     border-right-style: groove;
@@ -39,33 +40,50 @@ footer{ color: gray;
     margin: 16px;
     float: left;
 }
-.note:hover{
-    background-color: green;
-    color:white;
- -ms-transform: rotate(10deg); 
-     transform: rotate(10deg);
-    transform: rotateZ(10deg); 
-   
-}
+
 .note h1{
     font-size: 1.1rem;
+    font-weight: 900;
     margin-bottom: 6px;
 }
 .note p{
     font-size: 1.1rem;
-    font-family: cursive;
+  font-weight: 600;
     margin-bottom: 10px;
     white-space: pre-wrap;
     word-wrap: break-word;
 }
-button{
-    text-align: center;
+.note button{
+    position: relative;
+    float: right;
+    margin-right: 10px;
+    color: green;
+    width: 36px;
+    height: 36px;
+    cursor: pointer;
+    outline: none;
+}
+form.create-note{
+    position: relative;
+    width: 480px;
+    margin: 30px auto 20px auto;
+    background-color: white;
+    border-radius: 7px;
+    box-shadow: 0 1px 5px grey;
+}
+form.create-note input,
+form.create-note textarea{
+    width: 100%;
+    border: none;
+    padding: 4px;
+    outline: none;
+    resize: none;
 }
 .themeIcon{
     position:absolute;
 z-index: 999;
     right: 10px;
+    font-size: 30px;
     top: 10px;
-    color: blue;
-background-color: gold;
+    color:black;
 }
