@@ -22,7 +22,7 @@ function App() {
   }
 
   return (
-    <div style={{backgroundColor:"red"}}>
+    <div>
       <Header />
       <CreateArea onAdd={addNote} />
       {notes.map((noteItem, index) => {
